@@ -1,0 +1,22 @@
+<section>
+    <h3>Qu'est ce que ce site?</h3>
+    <p>Ce site est mon portfolio.</p>
+</section>
+<section>
+    <h3>Qui suis-je?</h3>
+    <p>Je suis Antoine James Tournepiche, un étudiant en informatique en 1ère année de <a href="https://www.lyceecharlesdefoucauldsup.fr/">BTS SIO au Lycée Charles de Foucauld</a>.</p>
+</section>
+<section>
+    <h3>Quel est l'intérêt d'un portfolio?</h3>
+    <p>Un portfolio sert à présenter ses capacités professionnelles, son expérience, des projets réalisés auparavant...</p>
+</section>
+<section>
+    <h3>Que contient ce site?</h3>
+    <p>Ce site contient différentes informations, telles que :</p>
+    <ul>
+        <li>Mon CV</li>
+        <li>Une présentation plus étayée</li>
+        <li>Une présentation des projets que j'ai publié sur GitHub</li>
+        <li>Le lien de mon GitHub</li>
+    </ul>
+</section>
