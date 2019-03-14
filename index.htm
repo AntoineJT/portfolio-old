@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="fr">
 	<head>
         <meta charset="utf-8">
 		<title>Portfolio - Antoine James Tournepiche</title>
         <link href="./style/default.css" rel="stylesheet">
-        <link rel="icon" href="img/portfolio_folder.png">
-        <script src="scripts/script.js"></script>
+        <link rel="icon" href="./img/portfolio_folder.png">
+        <script src="./scripts/script.js"></script>
 	</head>
 	<body>
         <header>
@@ -13,27 +13,18 @@
             <h2><author>Antoine James Tournepiche</author></h2>
         </header>
         <nav>
-            <ul lang="fr">
+            <ul>
                 <!--TODO Ajouter le système de changement de langue (js)-->
-                <li id="current" onclick="loadPage('assets/fr/accueil.xml');">Accueil</li>
-                <li onclick="loadPage('assets/fr/presentation.xml');">Présentation</li>
+                <li id="current" onclick="loadPage('assets/accueil.xml');">Accueil</li>
+                <li onclick="loadPage('assets/presentation.xml');">Présentation</li>
                 <li onclick="">Compétences</li>
                 <li onclick="">Projets</li>
                 <li onclick="loadPage('assets/test/galerie.xml');">Test Galerie</li>
             </ul>
-            <ul lang="en">
-                <li onclick="loadPage('assets/en/home.xml')">Home</li>
-                <li onclick="">Introduction</li>
-                <li onclick="">Skills</li>
-                <li onclick="">Projects</li>
-            </ul>
         </nav>
         <div id="content"></div>
         <footer>
-            <p id="thanks">
-                <span lang="fr">Merci à <a href="https://github.com/bryc" target="_blank">bryc</a> de m'avoir aidé à réaliser le design de ce site</span>
-                <span lang="en">Special thanks to <a href="https://github.com/bryc" target="_blank">bryc</a> for helping me to make the design of this website</span>
-            </p>
+            <p id="thanks">Merci à <a href="https://github.com/bryc" target="_blank">bryc</a> de m'avoir donné des conseils en design</p>
             <p>&copy; <date>2019</date> &ndash; <author>Antoine James Tournepiche</author></p>
         </footer>
 	</body>

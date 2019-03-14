@@ -5,11 +5,10 @@
     for his Portfolio website
 */
 
-window.onload=function(){
-    let li;
-    loadPage('assets/fr/accueil.xml');
-    li=document.querySelectorAll('nav ul li');
-    for (let i=0;i<li.length;i++){
+window.onload = function(){
+    loadPage('assets/accueil.xml');
+    const li = document.querySelectorAll('nav ul li');
+    for (let i = 0; i<li.length; i++){
         li.item(i).addEventListener('click',function(){
             document.getElementById('current').removeAttribute('id');
             this.setAttribute('id','current');
@@ -33,9 +32,9 @@ function loadPage(page,id='content'){
 		document.getElementById(id).innerHTML=body;
 	}).then(function(){ // Gallery system
         //let qse; // query selected elements
-        let qse=document.querySelectorAll('div.gallery>img');
-        if(qse!==null&&qse.length>0){
-            for(let i=0;i<qse.length;i++){
+        const qse = document.querySelectorAll('div.gallery>img');
+        if(qse!==null && qse.length>0){
+            for(let i = 0; i<qse.length; i++){
                 qse.item(i).addEventListener('click',function(){
                     window.open(this.getAttribute('src'));
                 });

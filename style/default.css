@@ -79,11 +79,6 @@ nav ul li:hover {
     border-bottom:rgb(50,175,50) solid 0.4vh;
 }
 
-/* Language */
-:lang(en) {
-    display:none;
-}
-
 /* Footer */
 footer {
     border-bottom:0;
@@ -192,13 +187,3 @@ div.gallery+div.buttons img:hover {
     height:6vh;
     cursor:pointer;
 }
-
-/*
-div.gallery div.buttons img:nth-child(1) { /* left button *//*
-    
-}
-
-div.gallery div.buttons img:nth-child(2) { /* right button *//*
-    
-}
-*/
