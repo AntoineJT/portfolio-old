@@ -1,0 +1,19 @@
+{
+    "projects" : [
+        {
+            "name" : "TEST",
+            "description" : "Ceci est un test à la con",
+            "languages" : [
+                "RIEN"
+            ]
+        },
+        {
+            "name" : "DELAMERDE",
+            "description" : "Fuck it putain!",
+            "languages" : [
+                "Le fun",
+                "Squalala"
+            ]
+        }
+    ]
+}
