@@ -6,112 +6,68 @@
 */
 
 window.onload = function(){
-    loadPage('assets/accueil.xml');
-    const li = document.querySelectorAll('nav ul li');
-    for (let i = 0; i<li.length; i++){
-        li.item(i).addEventListener('click',function(){
-            document.getElementById('current').removeAttribute('id');
-            this.setAttribute('id','current');
+    loadPage("assets/accueil.xml");
+    const li = document.querySelectorAll("nav ul li");
+    li.forEach((elem) => {
+        elem.addEventListener("click",function(){
+            document.getElementById("current").removeAttribute("id");
+            this.setAttribute("id","current");
+        });
+    });
+}
+
+async function loadPage(page,id="content"){
+    const response = await fetch(page).then((res) => res.text());
+    document.getElementById(id).innerHTML = response;
+    const qse = document.querySelectorAll("div.gallery>img");
+    if(qse !== null){
+        qse.forEach((elem) => {
+            elem.addEventListener("click",function(){
+                window.open(this.getAttribute("src"));
+            });
         });
     }
 }
-/*
-function loadPage(page,location){
-	fetch(page).then(function(response) {
-		return response.text();
-	}).then(function(body) {
-		document.querySelector(location).innerHTML = body;
-	});
-}
-*/
 
-function loadPage(page,id='content'){
-    fetch(page).then(function(response) {
-		return response.text();
-	}).then(function(body) {
-		document.getElementById(id).innerHTML=body;
-	}).then(function(){ // Gallery system
-        //let qse; // query selected elements
-        const qse = document.querySelectorAll('div.gallery>img');
-        if(qse!==null && qse.length>0){
-            for(let i = 0; i<qse.length; i++){
-                qse.item(i).addEventListener('click',function(){
-                    window.open(this.getAttribute('src'));
-                });
-            }
-            // THIS IS SOME SHIT
-            /*
-            const gal=document.querySelectorAll('div.gallery');
-            for(let i=0;i<gal.length;i++){
-                const item=gal.item(i);
-                item.outerHTML+='<div class="buttons"><img alt="left button" src="img/portfolio_folder.png"></img><img alt="right button" src="img/portfolio_folder.png"></img></div>'; // TODO Add button images
-                
-                let temp=document.querySelectorAll('div.gallery+div.buttons img');
-                const bleft=temp[0];
-                const bright=temp[1];
-                const images=item.querySelectorAll('img');
-                
-                bleft.style.visibility='hidden';
-                
-                let nbclick=0;
-                bright.addEventListener('click',()=>{
-                    item.style.right+=images.item(nbclick).clientWidth;
-                    nbclick++;
-                    bleft.style.visibility='visible';
-                });
-            }
-            */
-        }
-    });
-}
-
-function parseProjects(){
+async function parseProjects(){
     const file = "assets/projects.json";
     const id = "content";
     const template_file = "assets/project.xml";
-    fetch(template_file).then(function(response){
-        return response.text();
-    }).then(function(xml){
-        const template = xml;
-        fetch(file).then(function(response){
-            return response.text();
-        }).then(function(json){ // This is not working!
-            try {
-                let body = "";
-                const obj = JSON.parse(json);
-                obj.projects.forEach(function(elem){
-                    const name = elem.name;
-                    const description = elem.description;
-                    const languages = elem.languages; // this is an array
 
-                    const content_elem = document.getElementById('content');
-                    const name_elem = document.getElementById('name');
-                    const desc_elem = document.getElementById('description');
-                    
-                    content_elem.innerHTML = template;
-                    name_elem.text = name;
-                    desc_elem.text = description;
-                    const lang_elem = document.getElementById('languages');
-                    lang_elem.forEach(function(elem2){
-                        lang_elem.text += `<li>${elem2}</li>`;
-                    });
+    const template = await fetch(template_file).then((res) => res.text());
+    const json = await fetch(file).then((res) => res.text());
+    try {
+        let body = "";
+        const obj = JSON.parse(json);
+        await obj.projects.forEach((elem) => {
+            const name = elem.name;
+            const description = elem.description;
+            const languages = elem.languages; // this is an array
 
-                    function idToClass(elem, classname){
-                        elem.removeAttribute('id');
-                        elem.setAttribute('class', classname);
-                    }
-                    idToClass(name_elem, 'name');
-                    idToClass(desc_elem, 'description');
-                    idToClass(lang_elem, 'languages');
-                    
-                    body += document.getElementById('content').innerHTML;
-                    document.getElementById('content').innerHTML = "";
-                }).then(function(){
-                    document.getElementById(id).innerHTML = body;
-                });
-            } catch (exception){
-                console.error("Parsing error : ", exception);
+            const content_elem = document.getElementById("content");
+            content_elem.innerHTML = template;
+            const name_elem = document.getElementById("name");
+            name_elem.innerHTML = name;
+            const desc_elem = document.getElementById("description");
+            desc_elem.innerHTML = `<span class="label">Description : </span>${description}`;
+            const lang_elem = document.getElementById("languages");
+            languages.forEach((elem2) => {
+                lang_elem.innerHTML += `<li>${elem2}</li>`;
+            });
+
+            function idToClass(elem, classname){
+                elem.removeAttribute("id");
+                elem.setAttribute("class",classname);
             }
+            idToClass(name_elem,"name");
+            idToClass(desc_elem,"description");
+            idToClass(lang_elem,"languages");
+            
+            body += document.getElementById("content").innerHTML;
+            document.getElementById("content").innerHTML = "";
         });
-    });
+        document.getElementById(id).innerHTML = body;
+    } catch (exception){
+        console.error("Parsing error : ", exception);
+    }
 }
