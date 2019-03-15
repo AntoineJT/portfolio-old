@@ -1,4 +1,0 @@
-- liveeditor with backend to commit changes to file (obviously it needs authentication)
-- faire le délire du cache des compétences
-- système des projets
-...
