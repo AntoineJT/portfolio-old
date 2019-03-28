@@ -94,7 +94,7 @@ footer p#thanks {
     color:#CCC;
 }
 
-footer p#thanks span a {
+footer p#thanks a {
     color:rgb(100,200,150);
     font-style:normal;
     text-decoration:none;
@@ -194,24 +194,25 @@ div.gallery+div.buttons img:hover {
 
 .project .label {
     font-style:normal;
+    font-size:15pt; /* temporary workaround */
 }
 
 .project .name {
-    
+    cursor:pointer;
 }
 
 .project .description {
     font-style:italic;
 }
 
-.project .languages::before {
-    content:"Langages";
-}
-
 .project .languages {
-    
+    display:inline;
 }
 
-.project .languages ul li {
+.project .languages ul {
+    list-style-type:none;
+}
 
+.project .languages ul li::before {
+    content:"- ";
 }

@@ -1,7 +1,7 @@
 /*
-    script.js
-    12/16/2018 11:07 - 12/16/2018 11:07
-    written by Antoine James Tournepiche
+    Filename : script.js
+    Created on : 12/16/2018 11:07
+    Author : Antoine James Tournepiche
     for his Portfolio website
 */
 
@@ -41,19 +41,24 @@ async function parseProjects(){
         const obj = JSON.parse(json);
         await obj.projects.forEach((elem) => {
             const name = elem.name;
+            const fname = `assets/project/${elem.filename}.xml`;
             const description = elem.description;
             const languages = elem.languages; // this is an array
 
             const content_elem = document.getElementById("content");
             content_elem.innerHTML = template;
             const name_elem = document.getElementById("name");
+            name_elem.setAttribute("onclick", `loadPage("${fname}")`);
             name_elem.innerHTML = name;
             const desc_elem = document.getElementById("description");
             desc_elem.innerHTML = `<span class="label">Description : </span>${description}`;
             const lang_elem = document.getElementById("languages");
+            let list = "<span class='label'>Langages</span><ul>";
             languages.forEach((elem2) => {
-                lang_elem.innerHTML += `<li>${elem2}</li>`;
+                list += `<li>${elem2}</li>`;
             });
+            list += "</ul>";
+            lang_elem.innerHTML = list;
 
             function idToClass(elem, classname){
                 elem.removeAttribute("id");

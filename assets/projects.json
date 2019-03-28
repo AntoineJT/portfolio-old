@@ -1,14 +1,16 @@
 {
     "projects" : [
         {
-            "name" : "TEST",
-            "description" : "Ceci est un test à la con",
+            "name" : "AEA",
+            "filename" : "aea",
+            "description" : "Un ensemble d'algorithmes de chiffrement",
             "languages" : [
-                "RIEN"
+                "C"
             ]
         },
         {
             "name" : "DELAMERDE",
+            "filename" : "delamerde",
             "description" : "Fuck it putain!",
             "languages" : [
                 "Le fun",
