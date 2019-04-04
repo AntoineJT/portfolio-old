@@ -22,8 +22,8 @@ async function loadPage(page,id="content"){
     const qse = document.querySelectorAll("div.gallery>img");
     if(qse !== null){
         qse.forEach((elem) => {
-            elem.addEventListener("click",function(){
-                window.open(this.getAttribute("src"));
+            elem.addEventListener("click",() => {
+                window.open(elem.getAttribute("src"));
             });
         });
     }
@@ -54,9 +54,7 @@ async function parseProjects(){
             desc_elem.innerHTML = `<span class="label">Description : </span>${description}`;
             const lang_elem = document.getElementById("languages");
             let list = "<span class='label'>Langages</span><ul>";
-            languages.forEach((elem2) => {
-                list += `<li>${elem2}</li>`;
-            });
+            languages.forEach((elem2) => list += `<li>${elem2}</li>`);
             list += "</ul>";
             lang_elem.innerHTML = list;
 
