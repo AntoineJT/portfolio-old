@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+	<head>
+        <meta charset="utf-8">
+		<title>Portfolio - Antoine James Tournepiche</title>
+        <link href="./style/default.css" rel="stylesheet">
+        <link rel="icon" href="./img/portfolio_folder.png">
+        <script src="./scripts/script.js"></script>
+	</head>
+	<body>
+        <header>
+            <h1>Portfolio</h1>
+            <h2><author>Antoine James Tournepiche</author></h2>
+        </header>
+        <nav>
+            <ul>
+                <li id="current" onclick="loadPage('assets/accueil.xml')">Accueil</li>
+                <li onclick="loadPage('assets/presentation.xml')">Présentation</li>
+                <li onclick="">Compétences</li>
+                <li onclick="parseProjects()">Projets</li>
+                <li onclick="loadPage('assets/test/galerie.xml')">Test Galerie</li>
+            </ul>
+        </nav>
+        <div id="content"></div>
+        <footer>
+            <p id="thanks">Merci à <a href="https://github.com/bryc" target="_blank">bryc</a> de m'avoir donné des conseils en design</p>
+            <p>&copy; <date>2019</date> &ndash; <author>Antoine James Tournepiche</author></p>
+        </footer>
+	</body>
+</html>
