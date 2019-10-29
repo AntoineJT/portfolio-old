@@ -5,25 +5,25 @@
     for his Portfolio website
 */
 
-window.onload = function(){
+window.addEventListener("load", () => {
     loadPage("assets/accueil.xml");
-    const li = document.querySelectorAll("nav ul li");
-    li.forEach((elem) => {
-        elem.addEventListener("click",function(){
+    document.querySelectorAll("nav ul li").forEach((elem) => {
+        elem.addEventListener("click", () => {
             document.getElementById("current").removeAttribute("id");
-            this.setAttribute("id","current");
+            this.setAttribute("id", "current");
         });
     });
-}
+});
 
-async function loadPage(page,id="content"){
+async function loadPage(page, id="content"){
     const response = await fetch(page).then((res) => res.text());
     document.getElementById(id).innerHTML = response;
     const qse = document.querySelectorAll("div.gallery>img");
     if(qse !== null){
         qse.forEach((elem) => {
-            elem.addEventListener("click",() => {
-                window.open(elem.getAttribute("src"));
+            elem.addEventListener("click", () => {
+                const srcAttribute = elem.getAttribute("src");
+                window.open(srcAttribute);
             });
         });
     }
